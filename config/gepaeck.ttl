@@ -15,7 +15,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix qb: <http://purl.org/linked-data/cube#>.
 @prefix transport: <http://schema.lod.transportopendata.swiss/> .
-
+@prefis ex: @prefix ex: <http://example.org/>.
 
 <#Pollutant>
 	rml:logicalSource [
@@ -44,7 +44,7 @@
 	];
 
 	rr:predicateObjectMap [
-		rr:predicate transport:validFrom;
+		rr:predicate dcterms:date;
 		rr:objectMap [
 			rml:reference "gueltig_von";
 			rr:datatype xsd:date
@@ -52,7 +52,7 @@
 	];
 
 	rr:predicateObjectMap [
-		rr:predicate transport:validTo;
+		rr:predicate dcterms:date;
 		rr:objectMap [
 			rml:reference "gueltig_bis";
 			rr:datatype xsd:date
@@ -76,7 +76,7 @@
 	];
 
 	rr:predicateObjectMap [
-		rr:predicate transport:location;
+		rr:predicate ex:latlong;
 		rr:objectMap [
 			rml:reference "geopos";
 		]
