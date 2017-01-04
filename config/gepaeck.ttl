@@ -24,25 +24,16 @@
   	]; 
 
 	rr:subjectMap [
-    	rr:template "http://lod.transportopendata.swiss/gepaeck/{ID}";
+    	rr:template "http://lod.opentransportdata.swiss/gepaeck/{ID}";
 		rr:class schema:CivicStructure ;
 	];
-#in This file there are only information about luggage, so the ID will be the didok number
+#in This file there are only information about luggage, so the ID will be the didok number and a luggage typ
 	rr:predicateObjectMap [
     	rr:predicate gont:didok;
     	rr:objectMap [
-      		rr:template "http://lod.transportopendata.swiss/didok/service/luggage/{didok}"
+      		rr:template "http://lod.opentransportdata.swiss/didok/service/luggage/{didok}/{typ}"
     	]
   	];
-
-	#delete this information, because it's redudant to the station
-#	rr:predicateObjectMap [
-#	    rr:predicate transport:stationName;
-#	    rr:objectMap [
-#			rml:reference "stationsbezeichnung";
-#			rr:datatype xsd:string
-#		    ]
-#	];
 
 	rr:predicateObjectMap [
 		rr:predicate schema:validFrom;
@@ -59,19 +50,12 @@
 			rr:datatype xsd:date
 		]
 	];
-# I don't know what is the meaning, therefore ->delete
-#	rr:predicateObjectMap [
-#		rr:predicate transport:knot;
-#		rr:objectMap [
-#			rml:reference "knoten";
-#			rr:datatype xsd:string
-#		]
-#	];
+
 
 	rr:predicateObjectMap [
 		rr:predicate transport:info;
 		rr:objectMap [
-			rml:reference "abfertigungs_info";
+			rml:reference "typ";
 			rr:datatype xsd:string
 		]
 	];
